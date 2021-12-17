@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title> 
+    <script src="jquery-3.6.0.js"></script>
+<style>
+    .key, .key2{
+        cursor: pointer;
+        height: 30px;
+        width: 20%;
+        border: 1px solid black;
+        line-height: 30px;
+        font-size: 20px;
+    }
+    .key:active, .key2:active{
+        background-color: greenyellow;
+    }
+    h3{
+        font-size: 25px;
+    }
+    #choice1, #choice2 {
+        display: inline;
+        font-size: 25px;
+        line-height: 25px;
+        width: 10%;
+    }
+    #start{
+        cursor: pointer;
+        margin-top: 20px;
+        width:20%;
+        height: 20px;
+        text-align: center;
+        border-radius: 2px;
+        border: 2px solid black;
+    }
+    #start:active{
+        background-color: hotpink;
+    }
+</style>
+</head> 
+<body>
+    <div id="player1"><h3>PLAYER 1:<p type="text" id="choice1"></p></h3>
+        <div class="key">BATU</div>
+        <div class="key">GUNTING</div>
+        <div class="key">KERTAS</div>
+    </div>
+    <div id="player2"><h3>PLAYER 2:<p type="text" id="choice2"></p></h3>
+        <div class="key2">BATU</div>
+        <div class="key2">GUNTING</div>
+        <div class="key2">KERTAS</div>
+    </div>
+    <div id="start">
+        START
+    </div>
+<script>
+    $('#start').click(function(){
+    var choice1 = document.getElementById("choice1").innerHTML;
+    var choice2 = document.getElementById("choice2").innerHTML;
+   if(choice1==""||choice2==""){
+      alert('Input can not be left blank');
+   }
+   else if (choice1==choice2) {
+       alert('RESULT:SERI');
+   }
+   else if (choice1=="BATU") {
+       if (choice2=="GUNTING"){
+           alert('PLAYER 1 WIN')
+       } else {
+           alert('PLAYER 2 WIN')
+       }
+   }
+   else if (choice1=="GUNTING") {
+       if (choice2=="KERTAS"){
+           alert('PLAYER 1 WIN')
+       } else {
+           alert('PLAYER 2 WIN')
+       }
+   }
+   else if (choice1=="KERTAS") {
+       if (choice2=="BATU"){
+           alert('PLAYER 1 WIN')
+       } else {
+           alert('PLAYER 2 WIN')
+       }
+   }
+
+});
+    $(document).ready(function(){
+$(".key").click(function(){
+        document.getElementById("choice1").innerHTML=$(this).text();
+});
+    $(".key2").click(function(){
+        document.getElementById("choice2").innerHTML=$(this).text();
+});
+    });
+</script>  
+</body>
+</html>
